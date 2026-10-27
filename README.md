@@ -75,10 +75,6 @@ knows nothing about terminals; Win32 calls live only in `WindowsTerminal`.
 
 ## Known limitations
 
-* **Windows front-end is untested in CI here**: the console code (`WindowsTerminal.cpp`) and the CMake files
-  were written against the Win32/CMake documentation but were not compiled in the environment this was
-  developed in (Linux, no CMake). The portable core and all tests were built with GCC 13 and run clean under
-  AddressSanitizer/UBSan. Expect to fix small issues the first time you build on Windows.
 * **Text model is byte-based.** One byte is one terminal cell; control characters and bytes >= 0x80 render as
   `?`, and non-ASCII keyboard input is ignored. Files containing UTF-8 are preserved byte-for-byte on save,
   but editing inside a multi-byte character can corrupt it. No wide-character layout.
